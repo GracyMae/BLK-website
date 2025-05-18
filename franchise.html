@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <title>BLK Website</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .intro-container {
+      position: relative;
+      height: 50vh;
+      overflow: hidden;
+    }
+
+    .intro-text-overlay {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        z-index: 0;
+        font-family: 'Cookie', cursive;
+        font-size: 90px;
+    }
+
+
+    .intro-container img {
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      object-position: center center;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 30;
+      transition: background-color 0.3s;
+
+    }
+    .navbar.scrolled {
+        background-color: rgba(237, 185, 226, 0.959);
+    }
+
+    .navbar:hover {
+      background-color: rgba(241, 152, 222, 0.959);
+      color: rgb(86, 11, 75);
+    }
+
+    .navbar a.active {
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .navbar-left, .navbar-mid, .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .navbar a {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      text-decoration: none;
+      padding: 8px;
+      font-size: 16px;
+      margin: 0 15px;
+      transition: 0.3s;
+      font-weight: 200;
+    }
+
+    .navbar a:hover {
+      color: rgb(0, 0, 0);
+      font-size: 19px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .dropdown-button:hover {
+
+    }
+
+    .dropdown-button-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color:rgba(241, 152, 222, 0.959);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+    }
+
+    .dropdown-button-content a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-button-content {
+      display: block;
+    }
+
+    .dropdown-button-content a:hover {
+      background-color: rgb(254, 202, 232);
+      border-radius: 10px;
+      color:black;
+    }
+
+    .aboutus-container {
+      display: flex;
+      margin: 0 200px;
+    }
+
+    .award {
+      margin: 10px;
+    }
+
+    .award img {
+      width: 750px;
+      height: 750px;
+      transition: transform 0.4s;
+      border-radius: 20px;
+      box-shadow: 0px 2px 5px 3px rgb(104, 103, 103);
+    }
+
+    .award img:hover{
+      transform: scale(1.05);
+    }
+
+    .award-text {
+      font-size: 15px;
+      text-align: justify;
+      margin: 0 40px;
+      font-style: italic;
+      background-color: rgb(253, 215, 242);
+      border-radius: 30px;
+      box-shadow: 0px 2px 5px 3px rgb(104, 103, 103);
+      transition: transform 0.4s;
+
+
+    }
+
+    .award-text:hover {
+      transform: scale(1.05);
+    }
+
+    .award-text h1, .award-text p{
+      margin: 30px;
+    }
+
+    .footer {
+      background-color:rgba(252, 209, 248, 0.828) ;
+      padding: 10px;
+    }
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .socials img {
+      width:40px;
+      height:40px;
+      margin: 0 20px;
+    }
+
+    .contactus-container {
+        display:flex;
+        margin: 0 100px;
+        margin-left: 200px;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .text {
+        flex: 1;
+        padding: 0 40px;
+        margin:0  20px;
+        text-align: justify;
+        margin-left: 50px;
+    }
+
+    .submit {
+        flex: 2;
+    }
+
+    input, textarea {
+        padding: 10px;
+        width:500px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .pink-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 192, 203, 0.3); 
+        z-index: -1;
+    }
+    button {
+        padding:8px 50px;
+        font-family: 'poppins';
+        border-radius: 20px;
+        border: 1;
+        background-color:rgba(252, 209, 248, 0.828) ;
+        display: flex;
+        justify-content: center;    
+        transition: background-color 0.3s ease;
+    }
+    .submit button:hover {
+      background-color:rgba(251, 168, 243, 0.828) ;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .submit {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    </style>
+</head>
+<body>
+    <!-- for navbar and vid -->
+  <div class="intro-container">
+    <img src="franchise.jpg">
+    <div class="intro-text-overlay"><br>Franchise Us</div>
+      <div class="pink-overlay"></div>
+    <div class="content-overlay">
+      <div class="navbar">
+        <div class="navbar-left">
+          <img class="logo" src="1.png" />
+        </div>
+        <div class="navbar-mid">
+          <a href="index.html" >Home</a>
+          <div class="dropdown">
+            <button class="dropdown-button"><a href="#products">Products &#9662;</a></button>
+            <div class="dropdown-button-content">
+              <a href="face.html">Face</a>
+              <a href="skin.html">Skin</a>
+              <a href="eyes.html">Eyes</a>
+              <a href="lips.html">Lips</a>
+            </div>
+          </div>
+          <a href="FAQs.html">FAQs</a>
+          <a href="stores.html">Stores</a>
+          <a href="franchise.html" class="active">Franchise Us</a>
+          <a href="about_us.html"  >About Us</a>
+          <a href="contact_us.html">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+          <a href="user.html"><img src="user.png" style="width:30px;height:30px;"></a>
+          <a href="cart.html"><img src="cart.png" style="width:30px;height:30px;"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <br>
+<!--for feedback-->
+<div class="contactus-container">
+    <div class="text">
+        <h1 style="font-size: 20px;">TURN YOUR PASSION INTO A BEAUTY EMPIRE BY OWNING A BLK COSMETICS FRANCHISE!</h1><br>
+        <p>Be part of our growing network!<br> <br>Start offering the most loved and recommended cosmetics to your area today ✨ 
+
+<br><br>Estimated initial capital: ₱1.8-2.6M for 16-25 sqm retail store.
+
+<br><br>Inclusive of Franchise Fee: ₱500,000
+
+<br><br><b>NO ROYALTY FEE!</b><br><br>
+💖 Contact us at: 09620855353 (Call/Text/Viber)
+
+<br><br>For franchise kit and initial business presentation, register here: bit.ly/BLKFranchise
+        </p>
+    </div>
+    <div class="submit">
+        <form onsubmit="return showAlert()">
+            <h1>Inquiry Form</h1><br>
+            <label name="name" >Name*</label><br>
+            <input type="text" placeholder="Full Name" required><br><br>
+            <label name="name">Email*</label><br>
+            <input type="email" placeholder="example@email.com" required ><br><br>
+            <label name="message">Message</label><br>
+            <textarea id="message" name="message" placeholder="Type your message...   " rows="6" required></textarea><br>
+            <div class="button-wrapper">
+            <button type="submit">Send</button>
+            </div>        </form>
+    </div>
+</div>
+ <!--socials--><br>
+<div class="socials">
+<a href="https://www.facebook.com/blkcosmeticsph?mibextid=LQQJ4d"><img src="icon1.png"></a>
+<a href="https://www.instagram.com/blkcosmeticsph/"><img src="icon2.png"></a>
+<a href="https://www.tiktok.com/@blkcosmetics?"><img src="icon3.png"></a>
+<a href="https://www.youtube.com/@blkcosmeticsph"><img src="icon4.png"></a>
+</div><br>
+<!--footer-->
+<div class="footer">
+  <p style="text-align: center; font-size: 12px;">© blk cosmetics. 2023 all rights reserved.</p>
+</div>
+    <script>
+        window.onscroll = function() {
+          const navbar = document.querySelector('.navbar');
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        };
+      </script>
+
+      <script>
+  function showAlert() {
+    alert("Your form was successfully submitted!");
+    return true; // continue with form submission
+  }
+</script>
+</body>
+</html>

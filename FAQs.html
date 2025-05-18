@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <title>BLK Website</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .intro-container {
+      position: relative;
+      height: 50vh;
+      overflow: hidden;
+    }
+
+    .intro-text-overlay {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        z-index: 0;
+        font-family: 'Cookie', cursive;
+        font-size: 90px;
+    }
+
+
+    .intro-container img {
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      object-position: center center;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 30;
+      transition: background-color 0.3s;
+
+    }
+    .navbar.scrolled {
+        background-color: rgba(237, 185, 226, 0.959);
+    }
+
+    .navbar:hover {
+      background-color: rgba(241, 152, 222, 0.959);
+      color: rgb(86, 11, 75);
+    }
+
+    .navbar a.active {
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .navbar-left, .navbar-mid, .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .navbar a {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      text-decoration: none;
+      padding: 8px;
+      font-size: 16px;
+      margin: 0 15px;
+      transition: 0.3s;
+      font-weight: 200;
+    }
+
+    .navbar a:hover {
+      color: rgb(0, 0, 0);
+      font-size: 19px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+     .dropdown-button-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color:rgba(241, 152, 222, 0.959);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+    }
+
+    .dropdown-button-content a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-button-content {
+      display: block;
+    }
+
+    .dropdown-button-content a:hover {
+      background-color: rgb(254, 202, 232);
+      border-radius: 10px;
+      color:black;
+    }
+
+    .footer {
+      background-color:rgba(252, 209, 248, 0.828) ;
+      padding: 10px;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .socials img {
+      width:40px;
+      height:40px;
+      margin: 0 20px;
+    }
+
+    .pink-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(250, 204, 212, 0.266); 
+        z-index: -1;
+    }
+
+    .faqs-container p, h1 {
+        margin: 0 350px;
+        text-align: justify;
+    }
+
+    .faqs-container p {
+        font-size: 15px;
+    }
+
+    .faqs-container h1 {
+        font-size: 25px;
+    }
+
+    .shopping {
+        background-color: rgba(255, 229, 253, 0.764);
+    }
+
+    .about-brand {
+    }
+
+    .orders {
+    }
+
+    .product {
+        background-color: rgba(255, 229, 253, 0.764);
+
+    }
+
+    </style>
+</head>
+<body>
+    <!-- for navbar and vid -->
+  <div class="intro-container">
+    <img src="faq.png">
+    <div class="intro-text-overlay"><br>Frequently Asked Questions</div>
+      <div class="pink-overlay"></div>
+    <div class="content-overlay">
+      <div class="navbar">
+        <div class="navbar-left">
+          <img class="logo" src="1.png" />
+        </div>
+        <div class="navbar-mid">
+          <a href="index.html" >Home</a>
+          <div class="dropdown">
+            <button class="dropdown-button"><a href="#products">Products &#9662;</a></button>
+            <div class="dropdown-button-content">
+              <a href="face.html">Face</a>
+              <a href="skin.html">Skin</a>
+              <a href="eyes.html">Eyes</a>
+              <a href="lips.html">Lips</a>
+            </div>
+          </div>
+          <a href="FAQs.html" class="active">FAQs</a>
+          <a href="stores.html">Stores</a>
+          <a href="franchise.html" >Franchise Us</a>
+          <a href="about_us.html"  >About Us</a>
+          <a href="contact_us.html">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+          <a href="user.html"><img src="user.png" style="width:30px;height:30px;"></a>
+          <a href="cart.html"><img src="cart.png" style="width:30px;height:30px;"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--for FAQs-->
+<br>
+<div class="faqs-container">
+    <div class="about-brand">
+        <div class="about-brand-content"><br>
+            <h1>ABOUT THE BRAND</h1><br>
+            <p><b>What makes blk products uncomplicated?</b><br>
+
+        Our makeup and skincare products are designed to take the guesswork out 
+        of your routine and simplify your life. This is why we’re big on creating 
+        formulas and formats that are super easy to use, versatile (meaning, they 
+        can multitask!), and ultra-convenient for everyone.<br><br>
+
+        At blk, there are no complicated steps or intimidating how-to’s; just quick 
+        and  no-fuss application—the kind that you can do even if you’re pressed on 
+        time or on the go. Life is complicated enough as it is, after all. Your makeup 
+        shouldn’t be!<br><br><br>
+
+        <b>So you don’t test on animals?</b><br>
+        Definitely not! We love animals and would never harm any creature, big or small, 
+        just for the sake of beauty. In fact, blk is one of the first few local brands to 
+        get an official cruelty-free certification from People for the Ethical Treatment 
+        of Animals (PETA), and it’s something that we’re really proud of.<br><br><br>
+
+        <b>Pure & Kind beauty? What does that mean?</b><br>
+
+        Thoughtfully made with good intentions, blk products are 100% vegan, cruelty-free, 
+        and created using only pure, ethically-sourced, and skin-loving ingredients. 
+        They’re also free of harmful junk, specifically these eight yuckies: parabens, 
+        phthalates, SLS/SLEs, mineral oil, dyes, alcohol, artificial silicone, and artificial fragrances.<br> <br>
+
+        We’re also not in it simply for the business; we’re a beauty brand with a heart. 
+        Aside from making sure our products are kind to you and your skin—made with pure, 
+        safe, and gentle ingredients—blk is keen on doing good for the community and for the environment.<br>
+
+        <br>A portion of our sales go to causes and initiatives we believe in, such as 1% 
+        of the planet, a global organization that exists to ensure our planet and future generations.<br><br><br>
+
+        <b>Where are your products made?</b><br>
+
+        Taiwan, Korea and PRC<br><br></p><br>
+        </div>
+    </div>
+    <div class="shopping">
+        <div class="shopping-content"><br><BR>
+            <h1>SHOPPING</h1><br>
+            <b><p>How do I shop from the website?</b><br><br>
+
+Here’s a quick guide on how to purchase your blk products online:<br><br>
+
+1. Choose from the options on our main menu bar at the top of the page to shop from a specific category, 
+then click on the item you like. Or, you can find a specific product by typing its name on the search bar 
+at the top left corner of the page.<br><br>
+2. Once on the product page, you can view the product details and click on the image for a larger photo view. 
+Choose the quantity of item/s you want to buy (click + to add) then click ADD TO BAG.<br><br>
+3. A pop up will appear confirming your product is successfully added to your shopping cart. You may choose 
+CONTINUE SHOPPING to keep browsing and adding items or click PROCEED TO CHECKOUT to finalize your purchase.<br><br>
+4. When you click PROCEED TO CHECKOUT, you will be directed to the SHOPPING BAG SUMMARY. For any special instructions, 
+type it on the text box. Once everything is in order, click PROCEED TO CHECKOUT at the bottom right corner of the page.
+On the CHECKOUT page, input your contact details and delivery address.  If you have any voucher codes, you may input 
+it on the text box provided as well. Then, click PROCEED.<br><br>
+5. Under SHIPPING, choose from the shipping options available. We offer both local and international shipping for our products.<br><br>
+6. On the payment page, select your preferred payment method. Make sure to confirm your order details before proceeding with payment.<br><br>
+7. After payment, a message prompt will appear: Thank you for shopping with us! You will also receive an email confirmation 
+with the details of your order.<br><br><br>
+        </p>
+        </div>
+    </div>
+<br><br>
+    <div class="orders">
+        <div class="orders-content">
+            <h1>ORDERS AND PAYMENTS</h1><br>
+            <p>
+               <b> Q: What payment methods does blk cosmetics accept?</b><br><br>
+
+                A: We accept credit cards (Visa, Mastercard, JCB, & American Express), Maya, Gcash, GrabPay, WeChat Pay, Atome, Cash on delivery, and all establishments under QRPH.<br><br><br>
+
+                
+
+                <b>Q: What if payment methods on site do not apply to my country?</b><br><br>
+
+                A: Please contact hello@blkcosmetics.com.ph and we will be happy to assist you with a payment link.<br><br><br>
+
+                
+
+               <b> Q: When will my orders be processed?</b><br><br>
+
+                A: For Cash on Delivery, orders will be processed as soon as the order has been placed.<br><br>
+
+                For Credit/ Debit cards and Bank Transfers, orders will be processed once the payment has been confirmed.<br><br><br>
+
+                
+
+                <b>Q: When will I see the charge on my credit card?</b><br><br>
+
+                A: You will be notified by your bank as soon as your payment has been confirmed.<br><br><br>
+
+                
+
+                <b>Q: What should I do when my payment is declined?<br><br></b>
+
+                A: Kindly double check that you’ve typed in the correct card details. If everything is correct, please contact your local bank to look into your account.<br><br><br>
+
+                
+
+                <b>Q: Why was I charged the wrong amount?<br><br></b>
+
+                A: Kindly contact your local bank for further assistance on the charges, as there may be additional surcharges like tax or transfer fees.<br><br><br>
+        </p>
+        </div>
+    </div>
+    
+    <div class="product">
+        <div class="product-content"><br><br>
+            <h1>PRODUCT INQUIRIES</h1><br>
+            <p><b>Q: Are all blk cosmetics products cruelty-free?</b><br><br>
+
+                A: Yes! All blk cosmetics products are thoughtfully made without harming nor testing on animals. In fact, we are a certified PETA cruelty-free brand.<br><br><br>
+
+                
+
+               <b> Q: Where are blk cosmetics products made?<br><br></b>
+
+                A: blk cosmetics products are made in the beauty capitals of the world: Korea, Taiwan, and PRC!<br><br><br>
+
+                
+
+               <b> Q: Are all blk cosmetics products clean?<br><br></b>
+
+                A: Thoughtfully made with good intentions, blk products are 100% vegan, cruelty-free, and created using only pure, ethically-sourced, 
+                and skin-loving ingredients. They’re also free of harmful junk, specifically these eight yuckies: parabens, phthalates, SLS/SLEs, 
+                mineral oil, dyes, alcohol, artificial silicone, and artificial fragrances. For more questions about our products, send us a message at hello@blkcosmetics.com.ph.<br><br><br>
+
+                
+
+                <b>Q: Is blk cosmetics FDA-certified?<br><br></b>
+
+                A: Yes, All blk cosmetics products are FDA certified in the Philippines. You may verify this through the Philippine FDA website.<br><br><br>
+
+                
+
+              <b>  Q: Are blk cosmetics sun care products SPF tested?<br><br></b>
+
+                A: Yes, All blk cosmetics SPF claims are true and backed by SPF testing conducted by our Korean and Taiwanese manufacturers.<br><br><br>
+
+                
+
+               <b>Q: Are blk cosmetics products ingredients safe for sensitive skin?<br><br></b>
+
+                A: blk cosmetics products are formulated for all skin types and safe for sensitive skin.  Thoughtfully made with good intentions, blk 
+                products are 100% vegan, cruelty-free, and created using only pure, ethically-sourced, and skin-loving ingredients. They’re also free of 
+                harmful junk, specifically these eight yuckies: parabens, phthalates, SLS/SLEs, mineral oil, dyes, alcohol, artificial silicone, and artificial fragrances.<br><br><br>
+
+                
+
+                <b>Q: Are blk cosmetics products pregnancy-safe?<br><br></b>
+
+                A: All blk cosmetics products are pregnancy-safe but every journey is different. It will be best to check with your doctor for ingredients to avoid 
+                during your pregnancy. You may send us a message at hello@blkcosmetics.com.ph so that we can check the ingredients.<br><br><br>
+
+                
+
+               <b> Q: How do I choose the right shade for my foundation or powder?<br><br></b>
+
+                A: Our product listings contain visual shade guide matches for you to compare with your skin tone and undertone. Your 
+                skin tone is the main color of your skin, ranging from fair to deep skin. Your undertone is the natural shade within that color.</p><br><br>
+        </div>
+    </div>
+</p>
+        </div>
+    </div>
+</div>
+ <!--socials--><br>
+<div class="socials">
+<a href="https://www.facebook.com/blkcosmeticsph?mibextid=LQQJ4d"><img src="icon1.png"></a>
+<a href="https://www.instagram.com/blkcosmeticsph/"><img src="icon2.png"></a>
+<a href="https://www.tiktok.com/@blkcosmetics?"><img src="icon3.png"></a>
+<a href="https://www.youtube.com/@blkcosmeticsph"><img src="icon4.png"></a>
+</div><br>
+<!--footer-->
+<div class="footer">
+  <p style="text-align: center; font-size: 12px;">© blk cosmetics. 2023 all rights reserved.</p>
+</div>
+    <script>
+        window.onscroll = function() {
+          const navbar = document.querySelector('.navbar');
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        };
+      </script>
+</body>
+</html>

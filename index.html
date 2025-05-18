@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+  <title>BLK Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .intro-container {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .intro-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      object-position: center center;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 30;
+      transition: background-color 0.3s;
+
+    }
+    .navbar.scrolled {
+        background-color: rgba(237, 185, 226, 0.959);
+    }
+
+    .navbar:hover {
+      background-color: rgba(241, 152, 222, 0.959);
+      color: rgb(86, 11, 75);
+    }
+
+    .navbar a.active {
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .navbar-left, .navbar-mid, .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .navbar a {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      text-decoration: none;
+      padding: 8px;
+      font-size: 16px;
+      margin: 0 15px;
+      transition: 0.3s;
+      font-weight: 200;
+    }
+
+    .navbar a:hover {
+      color: rgb(0, 0, 0);
+      font-size: 19px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .dropdown-button-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color:rgba(241, 152, 222, 0.959);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+    }
+
+    .dropdown-button-content a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-button-content {
+      display: block;
+    }
+
+    .dropdown-button-content a:hover {
+      background-color: rgb(254, 202, 232);
+      border-radius: 10px;
+      color:black;
+    }
+
+    .slider {
+        position: relative;
+        width: 1000px;
+        margin:10px auto;
+        overflow: hidden;
+    }
+
+    .slider img {
+        width: 1100px;
+        display:none;
+        height: 700px;
+    }
+
+    img.displaySlide {
+        display:block;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    .slider button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-5%);
+        font-size: 2rem;
+        background-color: pink;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+    }
+
+    .previous {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    @keyframes fade {
+        from {opacity: .5}
+        to {opacity: 1;}
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .bretman-container{
+        background-color: rgba(252, 209, 248, 0.828);
+        display: flex;
+        overflow: hidden;
+        height: 600px;
+    }
+    .bretman-pic img{
+        width:1100px;
+        height: 600px;
+    }
+    .bretman-text {
+        padding: 150px;
+    }
+    .bretman-text p{
+        font-family: 'Poppins', sans-serif;
+        text-align: justify;
+    }
+    .shop-by-collection {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 10px 200px;
+    }
+    .shop-by-collection-content {
+        border: 1px solid transparent;
+        width:330px;
+        height:380px;
+        border-radius: 30px;
+        padding:5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: transform 0.5s;
+        margin: 5px;
+        box-shadow: 3px 3px 10px darkgray;
+        background-color: rgba(235, 208, 191, 0.515);
+    }
+    .shop-by-collection-content img {
+        width: 300px;
+        height: 300px;
+        display: block;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+    .shop-by-collection-content p {
+        font-size: 18px;
+        text-align: center;
+        font-weight: 600;
+    }
+    .shop-by-collection-content:hover {
+        transform: scale(1.1);
+    }
+    .second-featured {
+        background-color: rgba(252, 209, 248, 0.828);
+        display: flex;
+        overflow: hidden;
+        height: 600px;
+    }
+    .second-featured-img img {
+        height: 700px;
+        width: 1100px;
+        object-fit: cover;
+        display: flex;
+        padding-left:50px;
+
+    }
+    .second-featured-text {
+        padding: 120px;
+    }
+    .second-featured-text p {
+        font-family: 'Poppins', sans-serif;
+        text-align: justify;
+    }
+    .korean-holder{
+        display:flex;
+        background-color: rgba(252, 209, 248, 0.828);
+        height: 600px;
+        overflow: hidden;
+    }
+    .korean-pic img{
+        height: 700px;
+        width: 1100px;
+        object-fit: cover;
+        display: flex;
+    }
+    .korean-text {
+        padding: 120px;
+        text-align: justify;
+    }
+    .autoplay-slider {
+      height: 420px;
+      margin:auto;
+      position: relative;
+      width: 90%;
+      display: grid;
+      place-items: center;
+      overflow:hidden;
+      }
+    .slide-track {
+      display: flex;
+      width: calc(250px * 18);
+      animation: scroll 40s linear infinite;
+    }
+     .slide-track:hover {
+      animation-play-state: paused;
+    }
+    .slide {
+      display:flex;
+      align-items: center;
+      padding: 15px;
+      perspective:100px;
+    }
+    .slide img {
+      width: 380px;
+      height: 400px;
+      transition: transform 1s;
+      border-radius: 30px;
+      box-shadow: 2px 2px 2px 2px rgb(121, 94, 72);    
+    }
+
+    .slide img:hover {
+      transform: translateZ(4px);
+    }
+    @keyframes scroll {
+      0% {
+        transform:translateX(0)
+      }
+      100% {
+        transform: translateX(calc(-250px * 9));
+      }
+    }
+    .vegan-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .vegan-container img {
+      width: 170px;
+      height: 210px;
+      margin: 0 50px;
+    }
+    .intention-container {
+      width: 100%;
+      overflow: hidden;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .intention-track {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 40s linear infinite;
+    }
+
+    .intention-track p {
+      font-size: 18px;
+      color: #5c4026; 
+    }
+    .footer {
+      background-color:rgba(252, 209, 248, 0.828) ;
+      padding: 10px;
+    }
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .socials img {
+      width:40px;
+      height:40px;
+      margin: 0 20px;
+    }
+
+   .shop-by-collection-content a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+ <!-- for navbar and vid -->
+  <div class="intro-container">
+    <video autoplay muted loop playsinline>
+      <source src="vid.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="content-overlay">
+      <div class="navbar">
+        <div class="navbar-left">
+          <img class="logo" src="1.png" />
+        </div>
+        <div class="navbar-mid">
+          <a href="index.html" class="active">Home</a>
+          <div class="dropdown">
+            <button class="dropdown-button"><a href="#products">Products &#9662;</a></button>
+            <div class="dropdown-button-content">
+              <a href="face.html">Face</a>
+              <a href="skin.html">Skin</a>
+              <a href="eyes.html">Eyes</a>
+              <a href="lips.html">Lips</a>
+            </div>
+          </div>
+          <a href="FAQs.html">FAQs</a>
+          <a href="stores.html">Stores</a>
+          <a href="franchise.html">Franchise Us</a>
+          <a href="about_us.html">About Us</a>
+          <a href="contact_us.html">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+          <a href="user.html"><img src="user.png" style="width:30px;height:30px;"></a>
+          <a href="cart.html"><img src="cart.png" style="width:30px;height:30px;"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!--bretman mema-->
+   <div class="bretman-container">
+        <div class="bretman-pic">
+        <img src="bretman.png">
+        </div>
+        <div class="bretman-text">
+            <h2 style="text-align: justify; font-family: 'Cookie', cursive; font-size: 40px;">Bretman Rock's First-Ever Collaboration With a Filipino Beauty Brand</h2>
+            <br><p>"This season, we’re pressing pause—trading chaos for calm, 
+                golden hours, and sun-soaked days. blk’s latest drop is a 
+                love letter to slow beauty: effortless, expressive, and 
+                made for wherever summer takes you." We resonate a lot 
+                with this theme from Bretman and the brand—to escape the 
+                hustle and bustle of city life and indulge in a summer to 
+                remember. 
+
+            </p>
+        </div>
+    </div><br>
+<!-- for shop by collection -->
+<h1>Category Offers</h1><br>
+     <div class="shop-by-collection">
+  <div class="shop-by-collection-content">
+    <a href="face.html">
+      <img src="face.png" alt="face">
+      <p>Face</p>
+    </a>
+  </div>
+  <div class="shop-by-collection-content">
+    <a href="skin.html">
+      <img src="skin.jpg" alt="skin">
+      <p>Skin</p>
+    </a>
+  </div>
+  <div class="shop-by-collection-content">
+    <a href="eyes.html">
+      <img src="eyes.jpg" alt="eyes">
+      <p>Eyes</p>
+    </a>
+  </div>
+  <div class="shop-by-collection-content">
+    <a href="lips.html">
+      <img src="lips.png" alt="lips">
+      <p>Lips</p>
+    </a>
+  </div>
+</div>
+
+     <!-- for featured collection -->
+    <br>
+    <h1>Featured Collection</h1>
+    <div class="slider">
+            <div class="slides">
+                <img class="slide" src="3.jpg" alt="BLK featured collection">
+                <img class="slide" src="4.jpg" alt="BLK featured collection">
+                <img class="slide" src="5.jpg" alt="BLK featured collection">
+                <img class="slide" src="6.jpg" alt="BLK featured collection">
+                <img class="slide" src="7.jpg" alt="BLK featured collection">
+            </div>
+                <button class="prev" onclick="prevSlide()">&#10094</button>
+                <button class="next" onclick="nextSlide()">&#10095</button>
+    </div>
+    <script src="slider.js"></script>
+    <!-- for shop by collection -->
+    
+<!--2nd featured--><br>
+     <div class="second-featured">
+        <div class="second-featured-text">
+            <br><br><h2 style="text-align: justify; font-family: 'Cookie', cursive; font-size: 40px;">
+                Light as air, bold in color—blk’s airy matte tint 
+                is beauty without the weight."</h2><br>
+            <p>"Experience the feather-light touch of blk’s airy matte tint—where 
+                effortless color meets weightless comfort. A velvety finish that 
+                lasts, giving your lips that soft-focus glow with a plush, 
+                cloud-like feel. Say hello to the perfect balance of bold pigment
+                 and breathable wear, because beauty should never feel heavy."</p>
+        </div>
+        <div class="second-featured-img">
+            <img src="2nd-featured.png">
+        </div>
+     </div><br>
+
+<!--image autoplay memabels q, best sellers-->
+<h1>Best Sellers</h1><br>
+<div class="autoplay-slider">
+  <div class="slide-track">
+    <div class="slide">
+      <img src="best1.png">
+    </div>
+    <div class="slide">
+      <img src="best2.png">
+    </div>
+    <div class="slide">
+      <img src="best3.png">
+    </div>
+    <div class="slide">
+      <img src="best4.png">
+    </div>
+    <div class="slide">
+      <img src="best5.png">
+    </div>
+    <div class="slide">
+      <img src="best6.png">
+    </div>
+    <div class="slide">
+      <img src="best7.png">
+    </div>
+<!--double-->
+    <div class="slide">
+      <img src="best1.png">
+    </div>
+    <div class="slide">
+      <img src="best2.png">
+    </div>
+    <div class="slide">
+      <img src="best3.png">
+    </div>
+    <div class="slide">
+      <img src="best4.png">
+    </div>
+    <div class="slide">
+      <img src="best5.png">
+    </div>
+    <div class="slide">
+      <img src="best6.png">
+    </div>
+    <div class="slide">
+      <img src="best7.png">
+    </div>
+  </div>
+</div>
+<!--3rd featured--><br><br>
+     <div class="korean-holder">
+        <div class="korean-pic">
+            <img src="korean.jpeg">
+        </div>
+      <div class="korean-text">
+            <h2 style="text-align: justify; font-family: 'Cookie', cursive; font-size: 40px;">
+                K-Beauty Dream Lips: Soft Matte Perfection with BLK’s Mousse Lipstick!
+            </h2><br>
+            <p>Introducing the BLK Soft Matte Mousse Lipstick from the coveted K-Beauty 
+              Collection—where dreamy Korean beauty meets everyday glam! This lightweight, 
+              velvety formula glides on like a mousse, delivering rich, high-impact color 
+              with a soft-focus matte finish that feels as good as it looks. Infused with 
+              nourishing ingredients, it keeps your lips comfortably hydrated all day without 
+              smudging or drying out. Whether you're going for a natural K-beauty glow or bold 
+              drama, this lipstick is your go-to for effortlessly chic lips. Elevate your makeup 
+              game with BLK’s K-Beauty must-have—your pout will thank you!
+            </p>
+        </div>
+     </div><br>
+<!--label ng paraben-free-->
+<div class="intention-container">
+  <div class="intention-track">
+  <p>MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    MADE WITH GOOD INTENTIONS &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; </p></div>
+</div>
+<!--paraben-free-->
+<div class="vegan-container">
+  <img src="11.jpg">
+  <img src="12.jpg">
+  <img src="13.jpg">
+  <img src="14.jpg">
+  <img src="15.jpg">
+</div><br>
+<!--socials-->
+<div class="socials">
+<a href="https://www.facebook.com/blkcosmeticsph?mibextid=LQQJ4d"><img src="icon1.png"></a>
+<a href="https://www.instagram.com/blkcosmeticsph/"><img src="icon2.png"></a>
+<a href="https://www.tiktok.com/@blkcosmetics?"><img src="icon3.png"></a>
+<a href="https://www.youtube.com/@blkcosmeticsph"><img src="icon4.png"></a>
+</div><br>
+<!--footer-->
+<div class="footer">
+  <p style="text-align: center; font-size: 12px;">© blk cosmetics. 2023 all rights reserved.</p>
+</div>
+    <script>
+        window.onscroll = function() {
+          const navbar = document.querySelector('.navbar');
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        };
+      </script>
+      
+</body>
+</html>

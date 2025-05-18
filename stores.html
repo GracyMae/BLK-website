@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <title>Our Stores</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+    }
+
+    .intro-container {
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 30;
+      transition: background-color 0.3s;
+
+    }
+    .navbar.scrolled {
+        background-color: rgba(237, 185, 226, 0.959);
+    }
+
+    .navbar:hover {
+      background-color: rgba(241, 152, 222, 0.959);
+      color: rgb(86, 11, 75);
+    }
+
+    .navbar a.active {
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .navbar-left, .navbar-mid, .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .navbar a {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      text-decoration: none;
+      padding: 8px;
+      font-size: 16px;
+      margin: 0 15px;
+      transition: 0.3s;
+      font-weight: 200;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .navbar a:hover {
+      color: rgb(0, 0, 0);
+      font-size: 19px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+     .dropdown-button-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color:rgba(241, 152, 222, 0.959);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+    }
+
+    .dropdown-button-content a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown:hover .dropdown-button-content {
+      display: block;
+    }
+
+    .dropdown-button-content a:hover {
+      background-color: rgb(254, 202, 232);
+      border-radius: 10px;
+      color:black;
+    }
+    .all {
+        flex-direction: column;
+        margin: 0 150px;
+
+    }
+
+    /*.area {
+        display: flex;
+    }*/
+    .table {
+        padding:1px;
+        width: 100%;
+        border-collapse: collapse;
+
+    }
+    td, th {
+        border: 1px solid black;
+        padding: 10px;
+        width: 600px;
+        height: 10px;
+    }
+    h2 {
+        background-color: rgb(255, 209, 245);
+        text-align: center;
+        font-size: 18px;
+        font-weight: 550;
+    }
+    h3 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    th {
+        background-color: rgb(249, 238, 247);
+    }
+    .footer {
+      background-color:rgba(252, 209, 248, 0.828) ;
+      padding: 10px;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <!-- for navbar and vid -->
+  <div class="intro-container">
+    <img src="store.png">
+
+    <div class="content-overlay">
+      <div class="navbar">
+        <div class="navbar-left">
+          <img class="logo" src="1.png" />
+        </div>
+        <div class="navbar-mid">
+          <a href="index.html" >Home</a>
+          <div class="dropdown">
+            <button class="dropdown-button"><a href="#products">Products &#9662;</a></button>
+            <div class="dropdown-button-content">
+            <a href="face.html">Face</a>
+              <a href="skin.html">Skin</a>
+              <a href="eyes.html">Eyes</a>
+              <a href="lips.html">Lips</a>
+            </div>
+          </div>
+          <a href="FAQs.html">FAQs</a>
+          <a href="stores.html" class="active">Stores</a>
+          <a href="franchise.html">Franchise Us</a>
+          <a href="about_us.html">About Us</a>
+          <a href="contact_us.html">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+          <a href="user.html"><img src="user.png" style="width:30px;height:30px;"></a>
+          <a href="cart.html"><img src="cart.png" style="width:30px;height:30px;"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+    <h1 style="background-color: rgb(252, 166, 233);" class="ourstores">Our Stores</h1><br>
+     <!-- for stores -->
+      <div class="all">
+        <div class="area">
+            <h2>Central Area</h2><br>
+            <div class="individual">
+            <h3>Own Store</h3>
+            <table class="table">
+                <tr>
+                    <th>Store Location</th>
+                    <th>Address</th>
+                </tr>
+                <tr>
+                    <td>Robinsons Magnolia</td>
+                    <td>2nd floor, Aurora Blvd. corner Dona Hemady St., Quezon City</td>
+                </tr>
+                <tr>
+                    <td>Uptown Center Katipunan</td>
+                    <td>GF, in front of Adidas, New Wings UPTOWN CENTER</td>
+                </tr>
+                <tr>
+                    <td>Eastwood Mall</td>
+                    <td>G/F, 116 Eastwood Ave, Eastwood Mall, Bagumbayan, Quezon City, Metro Manila</td>
+                </tr>
+                <tr>
+                    <td>Uptown BGC</td>
+                    <td>2/F Uptown Mall, 11th Drive Bonifacio Global City, Taguig City, Metro Manila</td>
+                </tr>
+                <tr>
+                    <td>Venice Grand Canal</td>
+                    <td>Ground Level, Venice Grand Canal Mall, Upper McKinley Road, Fort Bonifacio, Taguig, Metro Manila</td>
+                </tr>
+                <tr>
+                    <td>Rob Manila Kiosk</td>
+                    <td>Level 2, Padre Faura Wing, Robinsons Place Manila, Ermita, Manila City</td>
+                </tr>
+                <tr>
+                    <td>SM Clark</td>
+                    <td>Ground Floor, Manuel A. Roxas Highway, Clark Freeport, Barangay Malabanias, Angeles City, Pampanga</td>
+                </tr>
+                <tr>
+                    <td>SM Fairview Kiosk</td>
+                    <td>GF, SM City Fairview, Quezon City</td>
+                </tr>
+                <tr>
+                    <td>Alabang Town Center</td>
+                    <td>Ground Floor, New Wing Alabang Town Center Dr, Ayala Alabang, Muntinlupa</td>
+                </tr>
+                <tr>
+                    <td>Trinoma</td>
+                    <td>Level 1 Trinoma Mall, North Avenue Quezon City</td>
+                </tr>
+                <tr>
+                    <td>Glorietta</td>
+                    <td>2nd Floor Glorietta 1, Ayala Center Makati City</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="individual">
+            <br><br>
+            <h3>Watsons / SM Department Stores</h3>
+            <table class="table">
+                <tr>
+                    <th>Store Location</th>
+                    <th>Store Type</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td>SM SAN LAZARO</td>
+                    <td>Dept Store</td>
+                    <td>UGF, SM San Lazaro, Sta. Cruz Manila</td>
+                </tr>
+                <tr>
+                    <td>SM CUBAO</td>
+                    <td>Dept Store</td>
+                    <td>UGF, SM Cubao, Quezon City</td>
+                </tr>
+                <tr>
+                    <td>SM STA MESA</td>
+                    <td>Dept Store</td>
+                    <td>UGF, SM City Sta. Mesa, Quezon City</td>
+                </tr>
+                <tr>
+                    <td>SM MANILA</td>
+                    <td>Dept Store</td>
+                    <td>UGF, SM City Manila, Manila City</td>
+                </tr>
+                <tr>
+                    <td>GATEWAY</td>
+                    <td>Watsons Commpharma</td>
+                    <td>Level 2, Gateway Mall Araneta Center Cubao, Quezon City</td>
+                </tr>
+                <tr>
+                    <td>SM MARIKINA</td>
+                    <td>Dept Store</td>
+                    <td>UGF, SM City Marikina, Marikina City</td>
+                </tr>
+                <tr>
+                    <td>SM TAYTAY</td>
+                    <td>Dept Store</td>
+                    <td>GF, SM City Taytay, Taytay Rizal</td>
+                </tr>
+                <tr>
+                    <td>NORTH THE BLOCK GRAND</td>
+                    <td>Watsons Commpharma</td>
+                    <td>3rd Level, The Block, SM City North EDSA, North Avenue corner EDSA, Quezon City, Metro Manila,</td>
+                </tr>
+                <tr>
+                    <td>ROBINSONS PLACE ERMITA</td>
+                    <td>Watsons Commpharma</td>
+                    <td>Level 2, Padre Faura Wing, Robinsons Place Manila, Ermita, Manila City</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        <div class="area"><br><br>
+            <h2>North Area</h2>
+            <div class="individual"><br>
+            <h3>Own Store</h3>
+            <table class="table">
+                <tr>
+                    <th>Store Location	</th>
+                    <th>Address	</th>
+
+                </tr>
+                <tr>
+                    <td>SM Baguio Kiosk	</td>
+                    <td>Level 2 SM City Baguio, Luneta Hill, Upper Session Rd, Baguio, 2600 Benguet</td>
+                </tr>
+                </table>
+            </div>
+             <div class="individual"><br><br>
+                <h3>Watsons / SM Department Stores</h3>
+                <table class="table">
+                    <tr>
+                        <th>Store Location</th>
+                        <th>Store Type</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td>SM NORTH EDSA</td>
+                        <td>Dept Store</td>
+                        <td>Level 3, Mall Area, SM City North Edsa, Quezon City</td>
+                    </tr>
+                    <tr>
+                        <td>SM PAMPANGA</td>
+                        <td>Dept Store</td>
+                        <td>UGF, SM City Pampanga, Pampanga City</td>
+                    </tr>
+                    <tr>
+                        <td>SM FAIRVIEW</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM City Fairview, Quezon City</td>
+                    </tr>
+                    <tr>
+                        <td>SM BAGUIO MALL</td>
+                        <td>Watsons Commpharma</td>
+                        <td>421 Magsaysay Ave, Baguio City, Benguet</td>
+                    </tr>
+                    <tr>
+                        <td>SM BAGUIO</td>
+                        <td>Dept Store</td>
+                        <td>LGF, Mall Area, SM City Baguio, Baguio City</td>
+                    </tr>
+                    <tr>
+                        <td>SM FAIRVIEW MALL</td>
+                        <td>Watsons Commpharma</td>
+                        <td>Fairview Center Mall, Commonwealth Ave, Novaliches, Quezon City</td>
+                    </tr>
+                    <tr>
+                        <td>SM BALIWAG</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM Baliwag, Bulacan City</td>
+                    </tr>
+                    <tr>
+                        <td>SM CLARK</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM City Clark, Pampanga City</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div class="area"><br><br>
+                <h2>South Area</h2><br>
+                <div class="individual">
+                    <h3>Own Store</h3>
+                    <table class="table">
+                    <tr>
+                        <th>Store Location</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td>Alabang Town Center</td>
+                        <td>Ground Floor, New Wing Alabang Town Center Dr, Ayala Alabang, Muntinlupa</td>
+                    </tr>
+                    <tr>
+                        <td>SM Dasma</td>
+                        <td>2nd Floor, Governor's Drive, Sampaloc 1, Dasmariñas, Cavite</td>
+                    </tr>
+                    <tr>
+                        <td>SM Mall of Asia</td>
+                        <td>Ground Level - North Wing SM Mall of Asia - Main Mall SM Mall of Asia SM Mall of Asia Complex Jose W. Diokno Boulevard, SM Central Business Park, Bay City, Pasay, Metro Manila</td>
+                    </tr>
+                    <tr>
+                        <td>Festival Kiosk</td>
+                        <td>GF Festival Mall, Alabang Muntinlupa</td>
+                    </tr>
+                    <tr>
+                        <td>SM Sto Tomas Kiosk</td>
+                        <td>GF SM City Sto Tomas, 20 Pan-Philippine Hwy, San Roques, Santo Tomas, Batangas</td>
+                    </tr>
+                    <tr>
+                        <td>SM Batangas Kiosk</td>
+                        <td>2F SM City Batangas, Pastor Village, Brgy. Pallocan Kanluran, Batangas City, Batangas, Philippines.</td>
+                    </tr>
+                    <tr>
+                        <td>SM Bacoor Kiosk</td>
+                        <td>UFG SM City Bacoor Tirona Highway, corner Emilio Aguinaldo Highway, Bacoor, 4102, Cavite</td>
+                    </tr>
+                </table>
+                </div>
+                <div class="individual"><br><br>
+                <h3>Watsons / SM Department Stores</h3>
+                    <table class="table">
+                    <tr>
+                        <th>Store Location</th>
+                        <th>Store Type</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td>SM MOA</td>
+                        <td>Dept Store</td>
+                        <td>G/F, SM Mall Of Asia, Pasay City</td>
+                    </tr>
+                    <tr>
+                        <td>SM SOUTHMALL</td>
+                        <td>Dept Store</td>
+                        <td>UGF, SM Southmall, Las Piñas City</td>
+                    </tr>
+                    <tr>
+                        <td>SM BACOOR</td>
+                        <td>Dept Store</td>
+                        <td>UGF, SM City Bacoor, Bacoor Cavite</td>
+                    </tr>
+                    <tr>
+                        <td>SM BICUTAN</td>
+                        <td>Dept Store</td>
+                        <td>UGF, SM City Bicutan, Parañaque City</td>
+                    </tr>
+                    <tr>
+                        <td>SM LIPA</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM Lipa, Lipa Batangas City</td>
+                    </tr>
+                    <tr>
+                        <td>SM BF PARA</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM City BF Parañaque, Sucat Parañaque City</td>
+                    </tr>
+                    <tr>
+                        <td>SM BATANGAS</td>
+                        <td>Dept Store</td>
+                        <td>UG, SM City Batangas, Batangas City</td>
+                    </tr>
+                    <tr>
+                        <td>SM CALAMBA</td>
+                        <td>Dept Store</td>
+                        <td>GF, SM City Calamba, Laguna City</td>
+                    </tr>
+                    <tr>
+                        <td>SM DASMARINAS</td>
+                        <td>Dept Store</td>
+                        <td>SM City Dasmariñas, Dasmariñas, Cavite City</td>
+                    </tr>
+                    </table>
+                </div>
+            </div>
+      </div><br>
+     <!--footer-->
+<div class="footer">
+  <p style="text-align: center; font-size: 12px;">© blk cosmetics. 2023 all rights reserved.</p>
+</div>
+<script>
+        window.onscroll = function() {
+          const navbar = document.querySelector('.navbar');
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        };
+      </script>
+</body>
+</html>
